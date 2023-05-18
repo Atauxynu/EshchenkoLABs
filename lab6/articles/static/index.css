@@ -1,0 +1,57 @@
+body {
+    background: #1abc9c;
+    font-family: Tahoma, Arial, sans-serif;
+    color: #ffffff;
+}
+
+.header img {
+    display: block;
+    align-content: center;
+    width: 318px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.archive {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header .header-links {
+    position: absolute;
+    top: 20px;
+    right:50px;
+
+}
+
+.header-links a {
+    color: #ffffff;
+}
+
+
+.archive .header h3 {
+    padding: 10px;
+}
+
+.post-title a {
+    color: #ffffff;
+}
+
+.header-article {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-article img {
+    width: 318px;
+}
+
+.article-author {
+    width: 50%;
+    float: left;
+}
+
+.article-created-date {
+    text-align: right;
+}

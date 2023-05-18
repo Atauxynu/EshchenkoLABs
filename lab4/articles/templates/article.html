@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Статья</title>
+    <link href="{% static 'index.css' %}" rel="stylesheet" type="text/css">
+</head>
+<body class="article">
+    <div class="header-article">
+        <img src="{% static 'logo.JPG' %}">
+        <h2 class="post-title"><a href="{% url 'archive' %}">Все статьи</a></h2>
+    </div>
+    <div class="article">
+        <h2>{{ post.header }}</h2>
+        <div class="article-author">{{ post.author.username }}</div>
+        <div class="article-created-date">{{ post.created_date }}</div>
+        <p >{{ post.get_excerpt }}</p>
+    </div>
+</body>
+</html>

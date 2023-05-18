@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Архив статей</title>
+    <link href="{% static 'index.css' %}" rel="stylesheet" type="text/css">
+</head>
+<body class="archive">
+    <div class="header">
+        <img src="{% static 'logo.JPG' %}">
+
+        <div class="header-links">
+            {% if request.user.is_authenticated %}
+                <h3><a href="{% url 'create_post' %}">Создать статью</a></h3>
+                <h3><a href="{% url 'log_out' %}">Выход из аккаунта</a></h3>
+
+
+            {% else %}
+                <h3><a href="{% url 'register' %}">Регистрация</a></h3>
+                <h3><a href="{% url 'auth' %}">Авторизация</a></h3>
+            {% endif %}
+        </div>
+    </div>
+    <div>
+        {% if request.user.is_authenticated %}
+            <h2>Привет, {{ request.user.username }}!</h2>
+        {% endif %}
+        {% for post in posts %}
+        <div class="one-post">
+            <h2 class="post-title"><a href="{% url 'get_article' post.id %}">{{ post.title }}</a></h2>
+            <div class="article-info">
+                <div class="article-author">{{ post.author.username }}</div>
+                <div class="article-created-date">{{ post.created_date }}</div>
+            </div>
+            <p class="article-text">{{ post.get_excerpt }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
